@@ -1,0 +1,33 @@
+{
+  "summary": "Regression pass for performance + SEO optimization on Stori & Co. landing. All 14 review-request acceptance criteria verified end-to-end. Backend pytest 4/4 (test_contact_api.py). Playwright UI: title, sections (Hero/About/Process[NEW]/Services/Contact/Footer), 4 nav links with min-h 44px, hero <picture> with WebP source + PNG fallback + alt 'Stori', JSON-LD MarketingAgency, canonical, exactly one <h1>, all sections have aria-label/aria-labelledby, 4 process steps render, nav-link-process scrolls to Process, footer Instagram unchanged, contact form validation toast + successful POST /api/contact -> 'SIGNAL RECEIVED' block. Public assets served: /assets/logo-{480,760,1140}.{webp,png} HTTP 200, /sitemap.xml HTTP 200 with our content, /robots.txt HTTP 200 (but content is the platform/CDN default content-signals robots, not our /public/robots.txt — see minor issues).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [],
+    "a11y_minor": [
+      {"component": "Process.jsx", "issue": "<section> has aria-labelledby='process-heading' but the <h2> inside (data-testid='process-title') has NO id='process-heading' — dangling ARIA reference. Add id='process-heading' to the <h2> for proper section labelling (About/Services/Contact all do this correctly).", "priority": "LOW"}
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_contact_api.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "Add id='process-heading' to the <h2> in /app/frontend/src/components/landing/Process.jsx to match the section's aria-labelledby reference (1-line fix).",
+    "Fix React DOM warning: in /app/frontend/src/components/landing/Hero.jsx the <img> uses lowercase `fetchpriority`; React expects camelCase `fetchPriority`. Console warning: 'Invalid DOM property fetchpriority. Did you mean fetchPriority?' (HTML attribute name in built page stays lowercase, so the preload behavior is preserved either way — this is only a JSX prop-name fix).",
+    "(Optional / infra) GET /robots.txt at the public URL returns Cloudflare/edge default content-signals robots.txt, NOT /app/frontend/public/robots.txt. Status is 200 so it satisfies the acceptance bar, but the app's robots.txt with the sitemap reference is not actually being served on the preview host. Verify if this is a platform edge override; if it is, this is a deploy-time concern, not a code bug. /sitemap.xml correctly serves our content."
+  ],
+  "critical_code_review_comments": [
+    "Process.jsx: dangling aria-labelledby (see a11y_minor).",
+    "Hero.jsx: `fetchpriority` should be `fetchPriority` (React JSX camelCase) to silence console warning.",
+    "From iteration_1 — still applies: server.py uses `logger` inside /contact except-block before `logging.basicConfig` runs at module scope (logger is actually module-level so OK, but the ordering is fragile — move logging setup to the top of the file)."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "test_credentials": "none required",
+  "seed_data_creation": "Inserted one TEST_ prefixed contact submission via the UI form (name=TEST_RegressionUser, email=test_reg@example.com). Safe to leave or purge.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "All review-request criteria PASS. Two minor non-blocking nits for E1: (1) add id='process-heading' to Process <h2>, (2) rename `fetchpriority` -> `fetchPriority` in Hero <img>. Backend test file at /app/backend/tests/test_contact_api.py covers /api/ root + POST /api/contact (valid, invalid email, missing field). Frontend URL from .env: https://stori-landing.preview.emergentagent.com (review-request URL was different host; .env is source of truth). Contact-form revenue option testid uses em-dash U+2014: form-revenue-option-$50K \\u2014 $250K."
+}
