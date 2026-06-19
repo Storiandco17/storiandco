@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = process.env.constBACKEND_URL = "https://storiandco-backend.onrender.com";
 const API = `${BACKEND_URL}/api`;
 
 const REVENUE_OPTIONS = [
