@@ -48,7 +48,7 @@ export default function Hero() {
             <span className="font-tracker">SYSTEM // ONLINE</span>
           </div>
           <span className="font-tracker hidden md:block text-ink-muted">EST. STUDIO-ENGINE / PUNE — IN</span>
-          <span className="font-tracker">VER 01.0</span>
+        
         </div>
       </div>
 
