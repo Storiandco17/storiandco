@@ -38,7 +38,7 @@ export default function Hero() {
             <span className="font-tracker">SYSTEM // ONLINE</span>
           </div>
           <span className="font-tracker hidden sm:block">EST. STUDIO-ENGINE / PUNE — IN</span>
-          
+          <span className="font-tracker">VER 01.0</span>
         </div>
       </div>
 
@@ -147,7 +147,7 @@ export default function Hero() {
       {/* Bottom scroll cue */}
       <div className="absolute bottom-6 left-0 right-0 z-10 flex justify-center">
         <div className="flex flex-col items-center gap-2">
-      
+          <span className="font-tracker text-[9.5px]">SCROLL</span>
           <span className="block w-px h-10 bg-silver-dim relative overflow-hidden">
             <span
               className="absolute left-0 top-0 w-px h-4 bg-gold"
