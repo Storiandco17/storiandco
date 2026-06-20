@@ -35,23 +35,26 @@ export default function Hero() {
             <span className="font-tracker">SYSTEM // ONLINE</span>
           </div>
           <span className="font-tracker hidden md:block text-ink-muted">EST. STUDIO-ENGINE / PUNE — IN</span>
-          <span className="font-tracker">VER 01.0</span>
+          
         </div>
       </div>
 
       {/* Main content - Massive negative space scaling */}
       <div className="relative z-10 flex-grow flex flex-col items-center justify-center text-center px-6 md:px-10 py-20">
         
-        {/* 2. Elevated Crest: Scaled down but luminosity increased via drop-shadow */}
-        <div data-reveal className="reveal mb-8" style={{ transitionDelay: "120ms" }}>
-          <picture>
+        {/* 2. Elevated Crest: Physical soft-light spotlight backing the logo */}
+        <div data-reveal className="reveal mb-8 relative flex justify-center" style={{ transitionDelay: "120ms" }}>
+          {/* The Spotlight - Forces visibility on dark screens */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] bg-gold opacity-20 blur-2xl rounded-full pointer-events-none"></div>
+          
+          <picture className="relative z-10">
             <source type="image/webp" srcSet={`${LOGO_BASE}-480.webp`} />
             <img
               src={`${LOGO_BASE}-480.png`}
               alt="Stori & Co crest"
               width={120}
               height={80}
-              className="mx-auto w-[80px] md:w-[100px] h-auto select-none transition-all duration-700 drop-shadow-[0_0_12px_rgba(197,162,107,0.4)] hover:drop-shadow-[0_0_24px_rgba(197,162,107,0.8)] cursor-default"
+              className="mx-auto w-[80px] md:w-[100px] h-auto select-none transition-transform duration-700 hover:scale-105 cursor-default"
               draggable={false}
             />
           </picture>
@@ -116,7 +119,7 @@ export default function Hero() {
       {/* Bottom scroll cue */}
       <div className="absolute bottom-24 left-0 right-0 z-10 flex justify-center pointer-events-none hidden md:flex">
         <div className="flex flex-col items-center gap-3 opacity-50">
-          <span className="font-tracker text-[9px] text-ink-muted">SCROLL</span>
+        
           <span className="block w-px h-12 bg-silver-line relative overflow-hidden">
             <span
               className="absolute left-0 top-0 w-px h-4 bg-gold"
