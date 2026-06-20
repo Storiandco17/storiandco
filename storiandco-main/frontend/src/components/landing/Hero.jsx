@@ -78,17 +78,12 @@ export default function Hero() {
             />
           </picture>
         </div>
-
-        <h1
-          data-reveal
-          data-testid="hero-tagline"
-          className="reveal font-serif-display text-stark text-4xl sm:text-5xl lg:text-6xl leading-[1.05] max-w-[920px]"
-          style={{ transitionDelay: "240ms" }}
-        >
-          Where <span className="text-gold">High-Art</span> Meets{" "}
-          <em className="not-italic">High-Performance.</em>
-        </h1>
-
+<h1
+  data-reveal
+  data-testid="hero-tagline"
+  className="reveal font-serif-display text-stark text-3xl sm:text-5xl lg:text-6xl leading-[1.1] max-w-[920px] mb-10 w-full px-4 break-words text-center"
+  style={{ transitionDelay: "240ms" }}
+>
         <p
           data-reveal
           data-testid="hero-subheadline"
