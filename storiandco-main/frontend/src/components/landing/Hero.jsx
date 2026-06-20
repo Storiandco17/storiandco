@@ -16,16 +16,16 @@ export default function Hero() {
       aria-label="Hero — Stori and Co. introduction"
       className="relative bg-grain min-h-[100svh] overflow-hidden"
     >
-      {/* blueprint grid layer */}
-      <div className="absolute inset-0 bg-blueprint opacity-60 pointer-events-none" />
+      {/* Blueprint grid layer - softened to 20% opacity */}
+      <div className="absolute inset-0 bg-blueprint opacity-20 pointer-events-none" />
 
-      {/* gold radial glow behind logo */}
+      {/* Gold radial glow - softened for a subtle luxury spill */}
       <div
         aria-hidden
         className="absolute left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2 w-[680px] h-[680px] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(197,162,107,0.18) 0%, rgba(197,162,107,0.06) 35%, transparent 70%)",
+            "radial-gradient(circle, rgba(197,162,107,0.12) 0%, rgba(197,162,107,0.03) 50%, transparent 80%)",
           filter: "blur(20px)",
         }}
       />
@@ -54,7 +54,7 @@ export default function Hero() {
 
         <div
           data-reveal
-          className="reveal mb-10"
+          className="reveal mb-12"
           style={{ transitionDelay: "120ms" }}
         >
           <picture>
@@ -82,7 +82,7 @@ export default function Hero() {
         <h1
           data-reveal
           data-testid="hero-tagline"
-          className="reveal font-serif-display text-stark text-4xl sm:text-5xl lg:text-6xl leading-[1.05] max-w-[920px]"
+          className="reveal font-serif-display text-stark text-4xl sm:text-5xl lg:text-6xl leading-[1.1] max-w-[920px] mb-10"
           style={{ transitionDelay: "240ms" }}
         >
           Where <span className="text-gold">High-Art</span> Meets{" "}
@@ -92,7 +92,7 @@ export default function Hero() {
         <p
           data-reveal
           data-testid="hero-subheadline"
-          className="reveal mt-8 max-w-[640px] font-mono-tech text-[13px] md:text-[14px] leading-relaxed text-ink"
+          className="reveal max-w-[640px] font-mono-tech text-[15px] leading-relaxed text-slate-400 tracking-wide"
           style={{ transitionDelay: "360ms" }}
         >
           Luxury is no longer just an image; it is an operating system.
@@ -103,7 +103,7 @@ export default function Hero() {
         {/* Services strip */}
         <div
           data-reveal
-          className="reveal mt-12 w-full max-w-[920px]"
+          className="reveal mt-16 w-full max-w-[920px]"
           style={{ transitionDelay: "480ms" }}
         >
           <div className="hairline-t hairline-b py-4">
