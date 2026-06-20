@@ -16,7 +16,7 @@ export default function Hero() {
       aria-label="Hero — Stori and Co. introduction"
       className="relative bg-obsidian min-h-[100svh] overflow-hidden flex flex-col"
     >
-      {/* 1. Atmospheric Lighting: Changed from a fixed box to a full-bleed environmental spill */}
+      {/* 1. Atmospheric Lighting: Environmental vignette replacing the hard circle */}
       <div className="absolute inset-0 bg-grain pointer-events-none mix-blend-overlay z-0" />
       <div className="absolute inset-0 bg-blueprint opacity-[0.15] pointer-events-none z-0" />
       <div
@@ -39,10 +39,10 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Main content - Adjusted spacing for massive negative space */}
+      {/* Main content - Massive negative space scaling */}
       <div className="relative z-10 flex-grow flex flex-col items-center justify-center text-center px-6 md:px-10 py-20">
         
-        {/* 2. Logo as a subtle crest, not a billboard */}
+        {/* 2. Elevated Crest: Scaled down but luminosity increased via drop-shadow */}
         <div data-reveal className="reveal mb-8" style={{ transitionDelay: "120ms" }}>
           <picture>
             <source type="image/webp" srcSet={`${LOGO_BASE}-480.webp`} />
@@ -51,17 +51,20 @@ export default function Hero() {
               alt="Stori & Co crest"
               width={120}
               height={80}
-              className="mx-auto w-[80px] md:w-[100px] h-auto select-none opacity-80"
+              className="mx-auto w-[80px] md:w-[100px] h-auto select-none transition-all duration-700 drop-shadow-[0_0_12px_rgba(197,162,107,0.4)] hover:drop-shadow-[0_0_24px_rgba(197,162,107,0.8)] cursor-default"
               draggable={false}
             />
           </picture>
         </div>
 
-        <p data-reveal className="reveal font-tracker text-gold mb-6 md:mb-10" data-testid="hero-eyebrow">
-          // 001 — A STUDIO-ENGINE FOR LEGACY BRANDS
+        {/* 3. The Editorial Eyebrow: Minimalist framing replacing the tech-bro slash */}
+        <p data-reveal className="reveal font-tracker text-gold mb-6 md:mb-10 flex items-center justify-center gap-4" data-testid="hero-eyebrow">
+          <span className="w-6 h-[1px] bg-gold/40"></span>
+          A STUDIO-ENGINE FOR LEGACY BRANDS
+          <span className="w-6 h-[1px] bg-gold/40"></span>
         </p>
 
-        {/* 3. Macro-Typography: Using viewport width (vw) for dramatic scaling */}
+        {/* 4. Macro-Typography: Viewport width sizing to physically command screen real estate */}
         <h1
           data-reveal
           data-testid="hero-tagline"
@@ -72,7 +75,7 @@ export default function Hero() {
           <em className="not-italic text-silver">High-Performance.</em>
         </h1>
 
-        {/* 4. Token Correction: Removed slate-400, applied native text-ink-muted */}
+        {/* 5. Token Correction: Utilizing your custom ink-muted variable */}
         <p
           data-reveal
           data-testid="hero-subheadline"
@@ -94,7 +97,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Services strip - Moved to the very bottom, framing the screen */}
+      {/* Services strip - Structural framing pulled out of the center stack */}
       <div className="relative z-10 w-full hairline-t bg-obsidian/50 backdrop-blur-md">
         <div className="max-w-[1600px] mx-auto py-5 px-6">
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[10px] md:text-xs font-mono-tech uppercase tracking-[0.3em] text-silver-line-strong">
@@ -110,7 +113,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom scroll cue - Adjusted positioning */}
+      {/* Bottom scroll cue */}
       <div className="absolute bottom-24 left-0 right-0 z-10 flex justify-center pointer-events-none hidden md:flex">
         <div className="flex flex-col items-center gap-3 opacity-50">
           <span className="font-tracker text-[9px] text-ink-muted">SCROLL</span>
