@@ -42,7 +42,7 @@ export default function Hero() {
 
       {/* Top meta bar */}
       <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 pt-8 md:pt-12">
-        <div className="flex items-center justify-between hairline-b pb-6">
+        <div className="flex items-center justify-between pb-6">
           <div className="flex items-center gap-4">
             <span className="dot-pulse" />
             <span className="font-tracker">SYSTEM // ONLINE</span>
